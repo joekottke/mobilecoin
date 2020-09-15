@@ -56,7 +56,6 @@ pipeline {
 
           // Checksum the enclave files
           sh 'md5sum $WORKSPACE/target/release/libconsensus-enclave.signed.so'
-          sh 'md5sum $WORKSPACE/target/release/consensus-enclave.css'
 
           // Staging area for binary packaging
           sh 'mkdir -p $WORKSPACE/ops/bin'
@@ -71,7 +70,6 @@ pipeline {
 
           // Checksum the enclave files
           sh 'md5sum $WORKSPACE/ops/bin/libconsensus-enclave.signed.so'
-          sh 'md5sum $WORKSPACE/ops/bin/consensus-enclave.css'
 
           // Copy the one-shot test-certificates into the staging area
           sh 'mkdir -p $WORKSPACE/ops/attest && cp -a $WORKSPACE/attest/test_certs $WORKSPACE/ops/attest/test_certs'
@@ -117,7 +115,6 @@ pipeline {
 
               // Checksum the enclave files
               sh 'md5sum $WORKSPACE/ops/bin/libconsensus-enclave.signed.so'
-              sh 'md5sum $WORKSPACE/ops/bin/consensus-enclave.css'
             }
             container('kaniko'){
               sh '''
@@ -153,7 +150,6 @@ pipeline {
 
               // Checksum the enclave files
               sh 'md5sum $WORKSPACE/ops/bin/libconsensus-enclave.signed.so'
-              sh 'md5sum $WORKSPACE/ops/bin/consensus-enclave.css'
             }
             container('kaniko'){
               sh '''
